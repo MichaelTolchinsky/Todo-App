@@ -1,5 +1,5 @@
 # Todo-App
-Full Stack Lerna monorepo react (redux-toolkit and rtk-query), nest and postgres dockerized todo app
+Full Stack Lerna monorepo react (redux-toolkit and rtk-query), nest and postgres dockerized todo app <br/>
 The main goal of this project was to learn lerna, redux-toolkit and rtk-query
 
 ## How to run the app
