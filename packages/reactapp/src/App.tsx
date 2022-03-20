@@ -9,8 +9,6 @@ const AppContainer = styled.div`
     h-screen flex justify-center items-center bg-gray-100
   `}`
 
-//TODO improve css to make it look nice
-//TODO containarize app using docker-compose
 
 function App() {
   return (
