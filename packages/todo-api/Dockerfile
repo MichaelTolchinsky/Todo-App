@@ -12,4 +12,4 @@ EXPOSE 3001
 
 RUN yarn build
 
-CMD ["yarn", "start"]
+CMD ["yarn", "start:dev"]

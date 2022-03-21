@@ -1,6 +1,30 @@
 version: '3.4'
 
 services:
+  postgres:
+    container_name: postgres
+    image: postgres:13.1
+    environment:
+      POSTGRES_PASSWORD: password
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    ports:
+      - 5432:5432
+    
+  todoapi:
+    image: todoapi
+    build:
+      context: packages/todo-api
+      dockerfile: ./Dockerfile
+    env_file:
+      - ./packages/todo-api/.env
+    ports:
+      - 3001:3001
+    volumes:
+    - ./packages/todo-api/:/app
+    - /app/node_modules
+    depends_on:
+      - postgres
   reactapp:
     image: reactapp
     build:
@@ -16,30 +40,6 @@ services:
     depends_on:
       - todoapi
 
-  todoapi:
-    image: todoapi
-    build:
-      context: packages/todo-api
-      dockerfile: ./Dockerfile
-    env_file:
-      - ./packages/todo-api/.env
-    ports:
-      - 3001:3001
-    volumes:
-    - ./packages/todo-api/:/app
-    - /app/node_modules
-    depends_on:
-      - postgres
-
-  postgres:
-    container_name: postgres
-    image: postgres:13.1
-    environment:
-      POSTGRES_PASSWORD: password
-    volumes:
-      - pgdata:/var/lib/postgresql/data
-    ports:
-      - 5432:5432
 
 volumes:
   pgdata:

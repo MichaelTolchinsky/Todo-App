@@ -1,8 +1,6 @@
 import React, { ChangeEvent, FormEvent, useState } from "react";
 import styled from "styled-components";
 import tw from "twin.macro";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faPlusCircle } from "@fortawesome/free-solid-svg-icons";
 
 const FormContainer = styled.form`
   ${tw`
@@ -33,8 +31,9 @@ const AddTodo = ({ handleAddTodo }: AddTodoProps) => {
           setTask((e.target as HTMLInputElement).value);
         }}
       />
+  
       <button type="submit" aria-label="Add Todo">
-        <FontAwesomeIcon icon={faPlusCircle} size="3x" />
+      <i className="large material-icons">add_circle</i>
       </button>
     </FormContainer>
   );

@@ -2,8 +2,6 @@ import React, { ChangeEvent, FormEvent, useState } from "react";
 import styled from "styled-components";
 import tw from "twin.macro";
 import { Todo } from "./types";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faEdit, faSave } from "@fortawesome/free-solid-svg-icons";
 
 const TodoItemContainer = styled.div`
   ${tw`
@@ -105,11 +103,11 @@ const TodoItem = ({
               handleCancelEdit();
             }}
           >
-            <FontAwesomeIcon icon={faSave} />
+            <i className="material-icons">save</i>
           </SaveButtonContainer>
         ) : (
           <EditButtonContainer onClick={handleEditMode}>
-            <FontAwesomeIcon icon={faEdit} />
+            <i className="material-icons">edit</i>
           </EditButtonContainer>
         )}
       </ActionsContainer>

@@ -5,9 +5,9 @@ const core_1 = require("@nestjs/core");
 const app_module_1 = require("./app.module");
 async function bootstrap() {
     const app = await core_1.NestFactory.create(app_module_1.AppModule);
-    app.enableCors();
     app.useGlobalPipes(new common_1.ValidationPipe());
-    await app.listen(process.env.SERVER_PORT, () => console.log(`Server is running on port ${process.env.SERVER_PORT}`));
+    app.enableCors();
+    await app.listen(process.env.SERVER_PORT, () => console.log(`Server is running on Port ${process.env.SERVER_PORT}`));
 }
 bootstrap();
 //# sourceMappingURL=main.js.map
